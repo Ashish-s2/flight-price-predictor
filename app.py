@@ -12,24 +12,29 @@ model = joblib.load("flight_price_model.pkl")
 # Page config
 st.set_page_config(page_title="Air India Fare Master", page_icon="🏢", layout="wide")
 
-# Add particle animation using components.html (JS works this way)
-particle_html = """
-<div id="tsparticles"></div>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-<script>
-tsParticles.load("tsparticles", {
-  fullScreen: { enable: true, zIndex: -1 },
-  particles: {
-    number: { value: 60 },
-    size: { value: 3 },
-    color: { value: "#ff4b4b" },
-    links: { enable: true, color: "#ff4b4b" },
-    move: { enable: true, speed: 1 }
-  }
-});
-</script>
-"""
-html(particle_html, height=0, width=0)
+# Add working particle animation using iframe-safe JavaScript
+html(
+    '''
+    <div id="tsparticles"></div>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+    <script>
+    window.addEventListener("load", () => {
+      tsParticles.load("tsparticles", {
+        fullScreen: { enable: true, zIndex: -1 },
+        particles: {
+          number: { value: 70 },
+          size: { value: 3 },
+          color: { value: "#ff4b4b" },
+          links: { enable: true, color: "#ff4b4b" },
+          move: { enable: true, speed: 1.2 }
+        }
+      });
+    });
+    </script>
+    ''',
+    height=0,
+    width=0
+)
 
 # Theme toggle
 if 'dark' not in st.session_state:
