@@ -9,8 +9,8 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
 ##  Project Structure
 
 📁 air-india-price-analysis/
-├── air_india_full_2019.csv # Cleaned dataset
-├── Air_India_EDA.ipynb # Jupyter notebook with analysis + ML
+├── air_india.csv # Cleaned dataset
+├── Air_India.ipynb # Jupyter notebook with analysis + ML
 ├── flight_price_model.pkl # Saved ML model (joblib)
 ├── app.py # Streamlit app to predict flight price
 ├── README.md # This file
