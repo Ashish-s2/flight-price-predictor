@@ -107,11 +107,11 @@ with st.sidebar:
     travel_date = st.date_input("📅 Travel Date", date.today())
     source = st.selectbox("🛫 From", ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata"])
     dest = st.selectbox("🛬 To", ["Cochin", "Hyderabad", "Delhi", "Mumbai", "Kolkata"])
-    submit = st.button("🔮 Predict My Fare")
+    submit = st.button(" Predict My Fare")
 
 # Main Title
-st.markdown("<div class='title-banner'>💸 Air India Fare Master</div>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center;'>Predict your flight fare with style and AI ✨</p>", unsafe_allow_html=True)
+st.markdown("<div class='title-banner'> Air India Fare Master</div>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center;'>Predict your flight fare with style and AI </p>", unsafe_allow_html=True)
 
 # Main Section
 if submit:
@@ -126,9 +126,9 @@ if submit:
         price_usd = "N/A"
 
     col1, col2, col3 = st.columns(3)
-    col1.metric("💰 Predicted Fare", f"₹ {round(predicted_price, 2)}")
-    col2.metric("💵 In USD", f"$ {price_usd}")
-    col3.metric("📅 Travel Day", travel_date.strftime("%A"))
+    col1.metric(" Predicted Fare", f"₹ {round(predicted_price, 2)}")
+    col2.metric(" In USD", f"$ {price_usd}")
+    col3.metric(" Travel Day", travel_date.strftime("%A"))
 
     st.markdown(f"""
 <div class='animated-card'>
@@ -145,9 +145,9 @@ if submit:
                   title="📈 Seasonal Fare Trend")
     st.plotly_chart(fig, use_container_width=True)
 
-    st.markdown("### 🧠 Smart Travel Tips")
+    st.markdown("###  Smart Travel Tips")
     if stops == 0:
-        st.success("✅ Non-stop: Best for saving time ⏱️")
+        st.success(" Non-stop: Best for saving time ⏱️")
     elif stops == 1:
         st.info("💡 1 stop: Possible layover, check airport schedule")
     else:
@@ -155,7 +155,7 @@ if submit:
     if duration > 240:
         st.info("👑 Consider booking a premium seat for comfort on longer flights.")
 
-    st.markdown("### 📤 Save Your Quote")
+    st.markdown("###  Save Your Quote")
     st.download_button("🧾 Download Fare Info (HTML)",
         data=f"""
         <h3>{source} → {dest}</h3>
@@ -167,17 +167,16 @@ if submit:
 
 # Footer + About Section
 st.markdown("---")
-st.markdown("## 🤖 About This Project")
+st.markdown("##  About This Project")
 st.markdown("""
 This web app uses real Air India flight data + machine learning to estimate ticket fares and provide real-time smart travel guidance.
 
-### ✨ What’s Inside:
+###  What’s Inside:
 - ML regression model trained on 5000+ flights
-- USD/INR price conversion
 - Seasonality trend visualized with Plotly
 - Custom travel tips + downloadable fare card
 - Theme toggle for light/dark mode
 
-### 👨‍💻 Creator:
+###  Creator:
 **Ashish Sahu**, Final Year BTech, Biomedical Engineering, NIT Rourkela
 """)
