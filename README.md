@@ -1,4 +1,4 @@
- ✈️ Air India Flight Price Analysis & Prediction  
+ Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
 
 This project explores real flight fare data for **Air India**, covering 5,000+ domestic flights in 2019.  
