@@ -2,13 +2,13 @@
 **EDA + Machine Learning + Streamlit App**
 
 This project explores real flight fare data for **Air India**, covering 5,000+ domestic flights in 2019.  
-We analyze trends, visualize pricing patterns, and build a machine learning model to predict flight ticket prices — all wrapped in a sleek Streamlit app 💻✨
+We analyze trends, visualize pricing patterns, and build a machine learning model to predict flight ticket prices — all wrapped in a sleek Streamlit app 
 
 ---
 
 ##  Project Structure
 
-📁 air-india-price-analysis/
+ air-india-price-analysis/
 ├── air_india.csv # Cleaned dataset
 ├── Air_India.ipynb # Jupyter notebook with analysis + ML
 ├── flight_price_model.pkl # Saved ML model (joblib)
@@ -20,10 +20,10 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
 
 ##  Project Goals
 
-- 📊 Explore Air India's flight fare patterns  
-- 📈 Identify how duration, stops, and routes affect pricing  
-- 🧠 Build a regression model to predict ticket prices  
-- 🌐 Launch a Streamlit app for real-time predictions
+-  Explore Air India's flight fare patterns  
+-  Identify how duration, stops, and routes affect pricing  
+-  Build a regression model to predict ticket prices  
+-  Launch a Streamlit app for real-time predictions
 
 ---
 
@@ -34,11 +34,11 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
 - Price distribution histograms  
 - Duration vs Price + Stops vs Price analysis  
 - Prediction using Linear Regression  
-- 🔮 Optional Streamlit app with user input
+- Optional Streamlit app with user input
 
 ---
 
-## ⚙ How to Run
+##  How to Run
 
 ###  Jupyter Notebook
 1. Open `Air_India_EDA.ipynb` in Jupyter  
@@ -71,7 +71,7 @@ Streamlit
 
 Joblib
 
-📚 What I Learned
+ What I Learned
 Feature engineering from raw data
 
 Visualization techniques using Seaborn
@@ -82,7 +82,7 @@ Building and deploying a Streamlit app
 
 How to present insights in a business-ready format
 
-🧠 Future Improvements
+ Future Improvements
 Use more features (e.g., Source/Destination/Time) for prediction
 
 Try advanced models like Random Forest, XGBoost
@@ -91,16 +91,16 @@ Deploy Streamlit app online via Streamlit Cloud
 
 Create an interactive dashboard using Plotly or Dash
 
-🚀 Try It Yourself
+ Try It Yourself
 Clone this repo
 
 Open the notebook to explore insights
 
 Run streamlit run app.py and predict your own Air India fare!
 
-🙋‍♂️ Author
+ Author
 Ashish Sahu
 Final Year BTech, Biomedical Engineering
 NIT Rourkela
-🌐 LinkedIn | 💌 ashish@example.com
+ LinkedIn |  6372671@gmail.com
 
