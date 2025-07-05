@@ -1,6 +1,6 @@
  Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
-A smart and stylish Streamlit app that predicts flight ticket prices using machine learning — built with ❤️ by Ashish Sahu.
+A Streamlit app that predicts flight ticket prices using machine learning — built with ❤️ by Ashish Sahu.
 
 ## Live Demo
 [![Streamlit App](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?logo=streamlit)](https://flight-price-predictor-1.streamlit.app/)
@@ -109,5 +109,5 @@ Run streamlit run app.py and predict your own Air India fare!
 Ashish Sahu
 Final Year BTech, Biomedical Engineering
 NIT Rourkela
- LinkedIn |  6372671@gmail.com
+ [LinkedIn](https://www.linkedin.com/in/ashish-sahu-88051224a/) |  6372671@gmail.com
 
