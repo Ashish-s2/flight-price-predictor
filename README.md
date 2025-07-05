@@ -1,3 +1,8 @@
+<p align="center">
+  <img src="banner.png" alt="Air India Fare Master Banner" width="100%">
+</p>
+<img src="assets/banner.png" ...>
+
 ## Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
 A Streamlit app that predicts flight ticket prices using machine learning — built with ❤️ by Ashish Sahu.
