@@ -1,4 +1,4 @@
-# ✈️ Air India Flight Price Analysis & Prediction  
+ ✈️ Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
 
 This project explores real flight fare data for **Air India**, covering 5,000+ domestic flights in 2019.  
@@ -6,7 +6,7 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
 
 ---
 
-## 📦 Project Structure
+##  Project Structure
 
 📁 air-india-price-analysis/
 ├── air_india_full_2019.csv # Cleaned dataset
@@ -15,13 +15,10 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
 ├── app.py # Streamlit app to predict flight price
 ├── README.md # This file
 
-yaml
-Copy
-Edit
 
 ---
 
-## 🔍 Project Goals
+##  Project Goals
 
 - 📊 Explore Air India's flight fare patterns  
 - 📈 Identify how duration, stops, and routes affect pricing  
@@ -30,7 +27,7 @@ Edit
 
 ---
 
-## 📊 Features & Visuals
+##  Features & Visuals
 
 - Month-over-Month price trend  
 - Route-wise pricing patterns  
@@ -41,14 +38,14 @@ Edit
 
 ---
 
-## ⚙️ How to Run
+## ⚙ How to Run
 
-### 🧪 Jupyter Notebook
+###  Jupyter Notebook
 1. Open `Air_India_EDA.ipynb` in Jupyter  
 2. Run all cells to explore visuals + ML  
 3. View results and insights  
 
-### 🌐 Streamlit Web App
+###  Streamlit Web App
 1. Save your trained model:
    ```python
    import joblib  
@@ -59,9 +56,9 @@ bash
 Copy
 Edit
 streamlit run app.py
-Choose duration + stops → Get predicted price 🔮
+Choose duration + stops → Get predicted price 
 
-💻 Technologies Used
+ Technologies Used
 Python
 
 Pandas, NumPy
