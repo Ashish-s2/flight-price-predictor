@@ -20,29 +20,112 @@ def toggle_theme():
 
 st.sidebar.button("🌙 Toggle Dark Mode" if not st.session_state.dark else "☀️ Light Mode", on_click=toggle_theme)
 
-# Apply theme CSS
+# Apply theme CSS + particle background, water ripple, glow buttons, and animation
 st.markdown(f"""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 body {{
-    background-color: {'#222' if st.session_state.dark else '#f4f4f9'};
-    color: {'#eee' if st.session_state.dark else '#222'};
+    background-color: {'#111' if st.session_state.dark else '#f4f4f4'};
+    color: {'#eee' if st.session_state.dark else '#111'};
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }}
+
+canvas.particle-background, .droplet {{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}}
+
+.droplet {{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: rgba(0, 174, 239, 0.7);
+    position: absolute;
+    pointer-events: none;
+    animation: ripple 1s ease infinite;
+}}
+
+@keyframes ripple {{
+    0% {{ transform: scale(1); opacity: 1; }}
+    100% {{ transform: scale(2); opacity: 0; }}
+}}
+
 .title-banner {{
-    font-size: 48px;
+    font-size: 3.2rem;
     font-weight: bold;
-    color: #FF4B4B;
+    background: linear-gradient(90deg, #FF6A00, #EE0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-align: center;
-    margin-top: 20px;
+    margin: 2rem 0 1rem;
 }}
-.metric-card {{
-    padding: 1rem;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    text-align: center;
+
+.animated-card {{
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}}
+
+@keyframes fadeInUp {{
+    to {{
+        opacity: 1;
+        transform: translateY(0);
+    }}
+}}
+
+.glow-button:hover {{
+    background: #ff4b4b;
+    color: white;
+    box-shadow: 0 0 20px #ff4b4b, 0 0 30px #ff4b4b;
+}}
+
+.glow-button {{
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #fff;
+    color: #ff4b4b;
+    transition: 0.3s;
 }}
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {{
+    const droplet = document.createElement('div');
+    droplet.className = 'droplet';
+    document.body.appendChild(droplet);
+    document.addEventListener('mousemove', e => {{
+        droplet.style.left = `${{e.clientX}}px`;
+        droplet.style.top = `${{e.clientY}}px`;
+    }});
+}});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {{
+    const canvas = document.createElement("canvas");
+    canvas.className = "particle-background";
+    document.body.appendChild(canvas);
+    tsParticles.load("tsparticles", {{
+        fullScreen: {{ enable: true, zIndex: -1 }},
+        particles: {{
+            number: {{ value: 60 }},
+            size: {{ value: 3 }},
+            move: {{ enable: true, speed: 1 }},
+            color: {{ value: "#ff4b4b" }},
+            links: {{ enable: true, color: "#ff4b4b" }}
+        }}
+    }});
+}});
+</script>
 """, unsafe_allow_html=True)
 
 # Sidebar
@@ -53,14 +136,14 @@ with st.sidebar:
     duration = st.slider("⏱️ Duration (min)", 30, 600, 180, 10)
     stops = st.selectbox("🔁 Stops", [0, 1, 2])
     departure = st.selectbox("🕓 Departure Time", ["Morning", "Afternoon", "Evening", "Night"])
-    travel_date = st.date_input("🗕️ Travel Date", date.today())
+    travel_date = st.date_input("📅 Travel Date", date.today())
     source = st.selectbox("🛫 From", ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata"])
     dest = st.selectbox("🛬 To", ["Cochin", "Hyderabad", "Delhi", "Mumbai", "Kolkata"])
     submit = st.button("🔮 Predict My Fare")
 
 # Main Title
 st.markdown("<div class='title-banner'>💸 Air India Fare Master</div>", unsafe_allow_html=True)
-st.write("Predict your Air India flight fare in seconds using machine learning ✈️🧠")
+st.markdown("<p style='text-align:center;'>Predict your flight fare with style and AI ✨</p>", unsafe_allow_html=True)
 
 # Main Section
 if submit:
@@ -80,10 +163,13 @@ if submit:
     col3.metric("📅 Travel Day", travel_date.strftime("%A"))
 
     st.markdown(f"""
-**Passenger:** {passenger}  
-**Trip:** {source} → {dest} | **Stops:** {stops} | **Departs:** {departure}  
+<div class='animated-card'>
+<p><strong>Passenger:</strong> {passenger}</p>
+<p><strong>Trip:</strong> {source} → {dest}</p>
+<p><strong>Stops:</strong> {stops} | <strong>Departs:</strong> {departure}</p>
+</div>
 ---
-""")
+""", unsafe_allow_html=True)
 
     months = list(range(1, 13))
     seasonal_prices = [predicted_price * (0.8 + 0.4 * ((i - 6) ** 2) / 36) for i in months]
@@ -126,4 +212,4 @@ This web app uses real Air India flight data + machine learning to estimate tick
 
 ### 👨‍💻 Creator:
 **Ashish Sahu**, Final Year BTech, Biomedical Engineering, NIT Rourkela
-""")}]}
+""")
