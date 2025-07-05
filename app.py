@@ -4,7 +4,6 @@ import joblib
 import plotly.express as px
 import requests
 from datetime import date
-from streamlit_lottie import st_lottie
 
 # Load ML model
 model = joblib.load("flight_price_model.pkl")
@@ -45,22 +44,23 @@ body {{
 # Sidebar
 with st.sidebar:
     st.image("https://media.giphy.com/media/QXVcjhflayKw4/giphy.gif", use_container_width=True)
-    st.markdown("## 🛫 Flight Info")
-    passenger = st.text_input("👤 Passenger Name", "Ashish")
-    duration = st.slider("⏱️ Duration (min)", 30, 600, 180, 10)
-    stops = st.selectbox("🔁 Stops", [0, 1, 2])
-    departure = st.selectbox("🕓 Departure Time", ["Morning", "Afternoon", "Evening", "Night"])
+    st.markdown("##  Flight Info")
+    passenger = st.text_input(" Passenger Name", "Ashish")
+    duration = st.slider(" Duration (min)", 30, 600, 180, 10)
+    stops = st.selectbox(" Stops", [0, 1, 2])
+    departure = st.selectbox(" Departure Time", ["Morning", "Afternoon", "Evening", "Night"])
     travel_date = st.date_input("🗕️ Travel Date", date.today())
-    source = st.selectbox("🛫 From", ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata"])
-    dest = st.selectbox("🛬 To", ["Cochin", "Hyderabad", "Delhi", "Mumbai", "Kolkata"])
-    submit = st.button("🔮 Predict My Fare")
+    source = st.selectbox(" From", ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata"])
+    dest = st.selectbox(" To", ["Cochin", "Hyderabad", "Delhi", "Mumbai", "Kolkata"])
+    submit = st.button(" Predict My Fare")
 
 # Title
 st.title("💸 Air India Fare Master")
 st.write("Predict your Air India flight fare in seconds using machine learning ✈️🧠")
 
 # Add Hero Animation
-st_lottie(lottie_json, speed=1, width=800, height=350, key="hero")
+st.image("https://media.giphy.com/media/QXVcjhflayKw4/giphy.gif", use_container_width=True)
+
 
 if submit:
     input_df = pd.DataFrame({"Duration_mins": [duration], "Stops_Num": [stops]})
