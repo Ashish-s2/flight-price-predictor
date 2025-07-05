@@ -8,4 +8,5 @@ seaborn
 python-dotenv
 plotly
 requests
-streamlit-lottie
+streamlit-lottie @ git+https://github.com/andfanilo/streamlit-lottie.git
+
