@@ -12,24 +12,43 @@ model = joblib.load("flight_price_model.pkl")
 # Page config
 st.set_page_config(page_title="Air India Fare Master", page_icon="🏢", layout="wide")
 
-# Add working particle animation using iframe-safe JavaScript
+# Inject working native canvas particle animation
 html(
     '''
-    <div id="tsparticles"></div>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+    <canvas id="background" style="position:fixed;top:0;left:0;z-index:-1;width:100vw;height:100vh;"></canvas>
     <script>
-    window.addEventListener("load", () => {
-      tsParticles.load("tsparticles", {
-        fullScreen: { enable: true, zIndex: -1 },
-        particles: {
-          number: { value: 70 },
-          size: { value: 3 },
-          color: { value: "#ff4b4b" },
-          links: { enable: true, color: "#ff4b4b" },
-          move: { enable: true, speed: 1.2 }
+    const canvas = document.getElementById("background");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const particles = [];
+
+    for (let i = 0; i < 80; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            vx: (Math.random() - 0.5) * 1,
+            vy: (Math.random() - 0.5) * 1,
+            r: 2 + Math.random() * 2
+        });
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#ff4b4b";
+        for (let p of particles) {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+            ctx.fill();
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
         }
-      });
-    });
+        requestAnimationFrame(draw);
+    }
+
+    draw();
     </script>
     ''',
     height=0,
