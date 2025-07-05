@@ -1,4 +1,4 @@
- Air India Flight Price Analysis & Prediction  
+## Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
 A Streamlit app that predicts flight ticket prices using machine learning — built with ❤️ by Ashish Sahu.
 
