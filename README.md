@@ -56,7 +56,7 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
    import joblib  
    joblib.dump(model, "flight_price_model.pkl")
 ## Run the app:
-```
+
 bash
 Copy
 Edit
