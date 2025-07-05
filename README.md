@@ -1,7 +1,7 @@
 <p align="center">
   <img src="banner.png" alt="Air India Fare Master Banner" width="100%">
 </p>
-<img src="assets/banner.png" ...>
+<img src="banner.png" ...>
 
 ## Air India Flight Price Analysis & Prediction  
 **EDA + Machine Learning + Streamlit App**
