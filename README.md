@@ -64,7 +64,7 @@ streamlit run app.py
 Choose duration + stops → Get predicted price 
 
 ## Technologies Used
-Python
+'''Python
 
 Pandas, NumPy
 
