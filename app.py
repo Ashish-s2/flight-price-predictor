@@ -4,12 +4,32 @@ import joblib
 import plotly.express as px
 import requests
 from datetime import date
+from streamlit.components.v1 import html
 
 # Load ML model
 model = joblib.load("flight_price_model.pkl")
 
 # Page config
 st.set_page_config(page_title="Air India Fare Master", page_icon="🏢", layout="wide")
+
+# Add particle animation using components.html (JS works this way)
+particle_html = """
+<div id="tsparticles"></div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+tsParticles.load("tsparticles", {
+  fullScreen: { enable: true, zIndex: -1 },
+  particles: {
+    number: { value: 60 },
+    size: { value: 3 },
+    color: { value: "#ff4b4b" },
+    links: { enable: true, color: "#ff4b4b" },
+    move: { enable: true, speed: 1 }
+  }
+});
+</script>
+"""
+html(particle_html, height=0, width=0)
 
 # Theme toggle
 if 'dark' not in st.session_state:
@@ -20,41 +40,15 @@ def toggle_theme():
 
 st.sidebar.button("🌙 Toggle Dark Mode" if not st.session_state.dark else "☀️ Light Mode", on_click=toggle_theme)
 
-# Apply theme CSS + particle background, water ripple, glow buttons, and animation
+# Apply custom styling
 st.markdown(f"""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
 body {{
     background-color: {'#111' if st.session_state.dark else '#f4f4f4'};
     color: {'#eee' if st.session_state.dark else '#111'};
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
 }}
-
-canvas.particle-background, .droplet {{
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    z-index: -1;
-}}
-
-.droplet {{
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: rgba(0, 174, 239, 0.7);
-    position: absolute;
-    pointer-events: none;
-    animation: ripple 1s ease infinite;
-}}
-
-@keyframes ripple {{
-    0% {{ transform: scale(1); opacity: 1; }}
-    100% {{ transform: scale(2); opacity: 0; }}
-}}
-
 .title-banner {{
     font-size: 3.2rem;
     font-weight: bold;
@@ -64,68 +58,18 @@ canvas.particle-background, .droplet {{
     text-align: center;
     margin: 2rem 0 1rem;
 }}
-
 .animated-card {{
     animation: fadeInUp 1s ease forwards;
     opacity: 0;
     transform: translateY(20px);
 }}
-
 @keyframes fadeInUp {{
     to {{
         opacity: 1;
         transform: translateY(0);
     }}
 }}
-
-.glow-button:hover {{
-    background: #ff4b4b;
-    color: white;
-    box-shadow: 0 0 20px #ff4b4b, 0 0 30px #ff4b4b;
-}}
-
-.glow-button {{
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    background: #fff;
-    color: #ff4b4b;
-    transition: 0.3s;
-}}
 </style>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {{
-    const droplet = document.createElement('div');
-    droplet.className = 'droplet';
-    document.body.appendChild(droplet);
-    document.addEventListener('mousemove', e => {{
-        droplet.style.left = `${{e.clientX}}px`;
-        droplet.style.top = `${{e.clientY}}px`;
-    }});
-}});
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
-<script>
-document.addEventListener("DOMContentLoaded", () => {{
-    const canvas = document.createElement("canvas");
-    canvas.className = "particle-background";
-    document.body.appendChild(canvas);
-    tsParticles.load("tsparticles", {{
-        fullScreen: {{ enable: true, zIndex: -1 }},
-        particles: {{
-            number: {{ value: 60 }},
-            size: {{ value: 3 }},
-            move: {{ enable: true, speed: 1 }},
-            color: {{ value: "#ff4b4b" }},
-            links: {{ enable: true, color: "#ff4b4b" }}
-        }}
-    }});
-}});
-</script>
 """, unsafe_allow_html=True)
 
 # Sidebar
