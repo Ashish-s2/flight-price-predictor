@@ -1,4 +1,4 @@
-streamlit
+lottstreamlit
 pandas
 numpy
 scikit-learn
@@ -8,3 +8,4 @@ seaborn
 python-dotenv
 plotly
 requests
+lottie
