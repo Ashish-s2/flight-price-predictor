@@ -115,3 +115,6 @@ Final Year BTech, Biomedical Engineering
 NIT Rourkela
  [LinkedIn](https://www.linkedin.com/in/ashish-sahu-88051224a/) |  6372671@gmail.com
 
+  [Download Project Summary (PDF)](Air_India_Fare.pdf)
+
+
