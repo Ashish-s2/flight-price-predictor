@@ -56,13 +56,13 @@ We analyze trends, visualize pricing patterns, and build a machine learning mode
    import joblib  
    joblib.dump(model, "flight_price_model.pkl")
 ## Run the app:
-
+```
 bash
 Copy
 Edit
 streamlit run app.py
 Choose duration + stops → Get predicted price 
-
+```
 ## Technologies Used
 ```Python
 
@@ -74,8 +74,9 @@ Scikit-learn (Linear Regression)
 
 Streamlit
 
-Joblib ```
+Joblib 
 
+```
 ## What I Learned
 Feature engineering from raw data
 
@@ -97,12 +98,13 @@ Deploy Streamlit app online via Streamlit Cloud
 Create an interactive dashboard using Plotly or Dash
 
 ## Try It Yourself
+```
 Clone this repo
 
 Open the notebook to explore insights
 
 Run streamlit run app.py and predict your own Air India fare!
-
+```
 ## Author
 Ashish Sahu
 Final Year BTech, Biomedical Engineering
