@@ -6,3 +6,5 @@ joblib
 matplotlib
 seaborn
 python-dotenv
+plotly
+requests
