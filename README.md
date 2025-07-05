@@ -3,7 +3,7 @@
 A smart and stylish Streamlit app that predicts flight ticket prices using machine learning — built with ❤️ by Ashish Sahu.
 
 ## Live Demo
-[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?logo=streamlit)](https://Ashish-s2-flight-price-predictor.streamlit.app)
+[![Streamlit App](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?logo=streamlit)](https://flight-price-predictor-1.streamlit.app/)
 
 ---
 This project explores real flight fare data for **Air India**, covering 5,000+ domestic flights in 2019.  
