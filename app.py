@@ -1,8 +1,3 @@
-from PIL import Image
-
-# Load and display banner
-banner = Image.open("banner.png")
-st.image(banner, use_column_width=True)
 import streamlit as st
 import pandas as pd
 import joblib
