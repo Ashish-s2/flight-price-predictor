@@ -1,4 +1,5 @@
 import streamlit as st
+from PIL import Image
 import pandas as pd
 import joblib
 import plotly.express as px
@@ -6,11 +7,17 @@ import requests
 from datetime import date
 from streamlit.components.v1 import html
 
+# Banner image
+banner = Image.open("banner.png")
+st.image(banner, use_column_width=True)
+
 # Load ML model
 model = joblib.load("flight_price_model.pkl")
 
 # Page config
 st.set_page_config(page_title="Air India Fare Master", page_icon="🏢", layout="wide")
+
+# (Rest of your code continues here...)
 
 # Inject working native canvas particle animation
 html(
